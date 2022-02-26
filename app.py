@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import requests
+import requests, urllib
 
 app = Flask(__name__)
 
@@ -10,9 +10,10 @@ def index():
 	if request.method == "POST":
 		if request.form.get('youtube') == "Generate Thumbnail":
 			video_url = request.form.get("video-url")
-			video_url = video_url.split("=")
+			video_url = urllib.parse.urlparse(video_url)
+			query = urllib.parse.parse_qs(video_url.query)
+			video_id = query["v"][0]
 			status = 1
-			video_id = video_url[1]
 			#120x90
 			url_list.append("https://img.youtube.com/vi/"+video_id+"/default.jpg")
 			#640x480
@@ -23,7 +24,6 @@ def index():
 			url_list.append("https://img.youtube.com/vi/"+video_id+"/hqdefault.jpg")
 			#1280x720
 			url_list.append("https://img.youtube.com/vi/"+video_id+"/maxresdefault.jpg")
-			print(url_list)
 
 			for indx, img_url in  enumerate(url_list):
 				img = requests.get(img_url)
