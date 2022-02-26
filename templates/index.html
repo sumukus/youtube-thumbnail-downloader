@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free online youtube video thumbnail downloader tool. Your can download five qualities of youtube video thumbnails. It is powered by druk information and technology." />
+	<title>YouTube Video Thumbnail Downloader</title>
+
+	<style type="text/css">
+		.app-body{
+			text-align: center;
+			margin: auto;
+			background: orange;
+			width: 90%;
+		}
+
+		label, input{
+			height: 25px;
+			font-weight: bold;
+		}
+
+		.url-input{
+			width: 25%;
+		}
+		.submit-button{
+			transition: 0.5s;
+			color: white;
+			background-color: deepskyblue;
+			height: 30px;
+		}
+		.submit-button:hover{
+			background-color: green;
+			color: white;
+			height: 30px;
+		}
+
+		img{
+			height: 100px;
+			width: 200px;
+		}
+
+		.clear-button{
+			text-align: center;
+			margin: auto;
+		}
+
+		/* Mobile CSS */
+		@media (max-width: 650px){
+			label, input{
+				display: inline-block;
+				margin-bottom: 10px;
+			}
+
+			.url-input{
+				width: 90%;
+			}
+
+			td,a{
+				width: 100%;
+				display: inline-block;
+				margin-bottom: 10px;
+			}
+
+		}
+
+	</style>
+</head>
+<body>
+<div class="app-body">
+	<h1>Free Online YouTube Video Downloader</h1><hr><br>
+	<form action="/" method="post">
+		<label >Enter URL:</label>
+		<input class="url-input" type="url" name="video-url" required>
+		<input class="submit-button" type="submit" name="youtube" value="Generate Thumbnail">
+	</form>
+	<br>
+	{% if status != 0 %}
+	<table>
+		<tr>
+			<td>
+				<img src="static/1.jpg">
+				<a href="static/1.jpg"><button class="submit-button">Download[120x90]</button></a>
+			</td>
+			<td>
+				<img src="static/2.jpg">
+				<a href="static/2.jpg" download><button class="submit-button">Download[640x480]</button></a>
+			</td>
+			<td>
+				<img src="static/3.jpg">
+				<a href="static/3.jpg" download><button class="submit-button">Download[320x180]</button></a>
+			</td>
+			<td>
+				<img src="static/4.jpg" >
+				<a href="static/4.jpg" download><button class="submit-button">Download[480x360]</button></a>
+			</td>
+			<td>
+				<img src="static/5.jpg" >
+				<a href="static/5.jpg" download><button class="submit-button">Download[1280x720]</button></a>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<div class="clear-button">
+		<a href="{{url_for('index')}}"><button class="submit-button">Clear Output</button></a>
+	</div>
+	{% endif %}
+	<h3 style="padding:20px; font-style: italic;">Powered by <a href="http://drukinfotech.com/" style="text-decoration: none;">Druk Information and Technology</a></h3>
+	
+</div>
+</body>
+</html>
