@@ -19,6 +19,11 @@
 			font-weight: bold;
 		}
 
+		td{
+			width: 25%;
+			padding: 20px;
+		}
+
 		.url-input{
 			width: 25%;
 		}
@@ -33,10 +38,23 @@
 			color: white;
 			height: 30px;
 		}
+		.clear-button{
+			transition: 0.5s;
+			color: white;
+			border-radius: 15px;
+			background-color: green;
+			font-size: 30px;
+			height: 50px;
+		}
+		.clear-button:hover{
+			background-color: deepskyblue;
+			color: white;
+		}
+
 
 		img{
-			height: 100px;
-			width: 200px;
+			height: 100%;
+			width: 100%;
 		}
 
 		.clear-button{
@@ -55,10 +73,15 @@
 				width: 90%;
 			}
 
-			td,a{
-				width: 100%;
+			td{
+				width: 90%;
 				display: inline-block;
 				margin-bottom: 10px;
+			}
+
+			img{
+				height: 100%;
+				width: 100%;
 			}
 
 		}
@@ -89,6 +112,8 @@
 				<img src="static/3.jpg">
 				<a href="static/3.jpg" download><button class="submit-button">Download[320x180]</button></a>
 			</td>
+		</tr>
+		<tr>
 			<td>
 				<img src="static/4.jpg" >
 				<a href="static/4.jpg" download><button class="submit-button">Download[480x360]</button></a>
@@ -97,11 +122,14 @@
 				<img src="static/5.jpg" >
 				<a href="static/5.jpg" download><button class="submit-button">Download[1280x720]</button></a>
 			</td>
+			<td>
+				<a href="{{url_for('index')}}"><button class="clear-button">Clear Output</button></a>
+			</td>
 		</tr>
 	</table>
 	<br>
-	<div class="clear-button">
-		<a href="{{url_for('index')}}"><button class="submit-button">Clear Output</button></a>
+	<div >
+		
 	</div>
 	{% endif %}
 	<h3 style="padding:20px; font-style: italic;">Powered by <a href="http://drukinfotech.com/" style="text-decoration: none;">Druk Information and Technology</a></h3>
